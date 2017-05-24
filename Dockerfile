@@ -13,7 +13,9 @@ RUN \
     supervisor \
     vim \
     curl \
-    && apt-get clean
+    && apt-get clean \
+    # remove default config
+    && rm -f /etc/nginx/conf.d/*
 # Configuration
 COPY ./config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY ./config/php.ini /etc/hhvm/php.ini
