@@ -15,7 +15,9 @@ RUN \
     curl \
     && apt-get clean \
     # remove default config
-    && rm -f /etc/nginx/conf.d/*
+    && rm -f /etc/nginx/conf.d/* \
+    # config hhvm server
+    && echo "hhvm.server.thread_count = 30" >> /etc/hhvm/server.ini
 # Configuration
 COPY ./config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY ./config/php.ini /etc/hhvm/php.ini
