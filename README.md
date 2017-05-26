@@ -15,26 +15,13 @@ CD into your cloned repository
 
 ````Bash
 cd nginx-hhvm-docker
+
+docker build -t nginx-hhvm:test .
+
+docker run -d -P -v $(WEBROOT):/var/www/public nginx-hhvm:test
 ````
 
-Firstly lets scale the `web` servers, from your project execute:
-
-````Bash
-docker-compose scale web=3
-````
-
-Now we boot the rest of the services by executing:
-
-````Bash
-docker-compose up
-````
-
-Voila! simply visit `nginx-hhvm.app` and you have a fully load-balanced, horizintally scaled application inferstructure!
-
-**NOTE:** Make sure you add `nginx-hhvm.app` to your hosts file if developing locally with the IP address of the `docker-machine` instance.
 
 ## Configuration
 
-We reccomend you create your own Dockerfile build, based upon this image.
-
-Image is based upon the official nginx docker repository, see [git repo](https://github.com/nginxinc/docker-nginx) for more information.
+In config dir. 
