@@ -6,7 +6,7 @@ load_balancer:
         - "80:80"   
         - "443:443"       
 web:
-    image: andrewmclagan/nginx-hhvm
+    image: arthurma/nginx-hhvm
     environment: 
         - VIRTUAL_HOST=nginx-hhvm.app
     volumes:
